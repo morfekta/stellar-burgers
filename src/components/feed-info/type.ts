@@ -1,8 +1,7 @@
 import { TOrder } from '@utils-types';
 
-export type FeedUIProps = {
+export type FeedInfoProps = {
   orders: TOrder[];
   total: number;
   totalToday: number;
-  handleGetFeeds: () => void;
 };
