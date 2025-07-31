@@ -105,7 +105,7 @@ const App = () => {
             path='/ingredients/:id'
             element={
               <Modal
-                title='Детали ингредиента'
+                title=''
                 onClose={() => {
                   window.history.back();
                 }}
@@ -118,7 +118,7 @@ const App = () => {
             path='/feed/:number'
             element={
               <Modal
-                title='Детали заказа'
+                title=''
                 onClose={() => {
                   window.history.back();
                 }}
@@ -132,7 +132,7 @@ const App = () => {
             element={
               <ProtectedRoute>
                 <Modal
-                  title='Детали заказа'
+                  title=''
                   onClose={() => {
                     window.history.back();
                   }}
