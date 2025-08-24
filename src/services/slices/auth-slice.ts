@@ -86,6 +86,7 @@ const authSlice = createSlice({
       })
       .addMatcher(isFulfilled(loginUser, registerUser), (state) => {
         state.isLoading = false;
+        state.error = null;
       })
       .addMatcher(
         isRejectedWithValue(loginUser, registerUser),

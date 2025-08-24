@@ -1,0 +1,9 @@
+{
+    "success": true,
+    "accessToken": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4ODgwODMzZDVjYTMwMDAxY2ZmYzVmMyIsImlhdCI6MTc1NjA1NTY2MCwiZXhwIjoxNzU2MDU2ODYwfQ.r7siMq91bGFo-xtpUWerD2wPJhds3Drg_MPCcnmmyQ4",
+    "refreshToken": "dc9c4951a3f5b11e29ef444e195bbafadfcd83210146dd29963abb25c88a81c7ec4e838c4c286096",
+    "user": {
+        "email": "55d@ewed.ewq",
+        "name": "12"
+    }
+}

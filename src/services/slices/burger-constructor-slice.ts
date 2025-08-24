@@ -21,12 +21,16 @@ const burgerConstructorSlice = createSlice({
     addIngredient(state, action: PayloadAction<TConstructorIngredient>) {
       state.ingredients.push(action.payload);
     },
-    removeIngredient(state, action: PayloadAction<TConstructorIngredient>) {
+    removeIngredient(state, action: PayloadAction<string>) {
       state.ingredients = state.ingredients.filter(
-        (ingredient) => ingredient !== action.payload
+        (ingredient) => ingredient.id !== action.payload
       );
     },
-    moveIngredient(state, action) {},
+    moveIngredient(state, action) {
+      const { from, to } = action.payload;
+      const [moved] = state.ingredients.splice(from, 1);
+      state.ingredients.splice(to, 0, moved);
+    },
     clearConstructor(state) {
       state.bun = null;
       state.ingredients = [];
