@@ -1,37 +1,26 @@
 /// <reference types="cypress" />
-// ***********************************************
-// This example commands.ts shows you how to
-// create various custom commands and overwrite
-// existing commands.
-//
-// For more comprehensive examples of custom
-// commands please read more here:
-// https://on.cypress.io/custom-commands
-// ***********************************************
-//
-//
-// -- This is a parent command --
-// Cypress.Commands.add('login', (email, password) => { ... })
-//
-//
-// -- This is a child command --
-// Cypress.Commands.add('drag', { prevSubject: 'element'}, (subject, options) => { ... })
-//
-//
-// -- This is a dual command --
-// Cypress.Commands.add('dismiss', { prevSubject: 'optional'}, (subject, options) => { ... })
-//
-//
-// -- This will overwrite an existing command --
-// Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
-//
-// declare global {
-//   namespace Cypress {
-//     interface Chainable {
-//       login(email: string, password: string): Chainable<void>
-//       drag(subject: string, options?: Partial<TypeOptions>): Chainable<Element>
-//       dismiss(subject: string, options?: Partial<TypeOptions>): Chainable<Element>
-//       visit(originalFn: CommandOriginalFn, url: string, options: Partial<VisitOptions>): Chainable<Element>
-//     }
-//   }
-// }
+/// <reference path="./commands.d.ts" />
+
+// Найти контейнер конструктора «от кнопки Оформить заказ»
+Cypress.Commands.add('getConstructor', () => {
+  return cy.contains('button', 'Оформить заказ').closest('section');
+});
+
+// Закрыть любую модалку по крестику
+Cypress.Commands.add('closeModal', () => {
+  return cy.get('[data-testid=modal-close]').click({ force: true });
+});
+
+// Открыть модалку ингредиента по имени (клик по карточке)
+Cypress.Commands.add('openIngredientModal', (name: string | RegExp) => {
+  return cy.contains('li', name).find('a').first().click({ force: true });
+});
+
+// Добавить ингредиент по имени (кнопка «Добавить» внутри карточки)
+Cypress.Commands.add('addIngredient', (name: string | RegExp) => {
+  return cy.contains('li', name).within(() => {
+    cy.contains('button', /Добавить/i).click();
+  });
+});
+
+export {};

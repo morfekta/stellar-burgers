@@ -1,19 +1,13 @@
 import reducer, {
   fetchFeed,
   fetchOrderByNumber,
+  initialState
 } from './feed-slice';
 
 describe('Слайс ленты заказов (feed-slice)', () => {
   test('возвращает начальное состояние при неизвестном экшене', () => {
     const state = reducer(undefined, { type: 'UNKNOWN' } as any);
-    expect(state).toEqual({
-      orders: [],
-      total: 0,
-      totalToday: 0,
-      isLoading: false,
-      error: null,
-      orderByNumber: [],
-    });
+    expect(state).toEqual(initialState);
   });
 
   test('fetchFeed.pending: ставит isLoading = true и очищает ошибку', () => {

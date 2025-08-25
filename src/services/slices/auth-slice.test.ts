@@ -1,15 +1,13 @@
 import reducer, {
   loginUser,
   registerUser,
+  initialState,
 } from './auth-slice';
 
 describe('Слайс аутентификации (auth-slice)', () => {
   test('возвращает начальное состояние при неизвестном экшене', () => {
     const state = reducer(undefined, { type: 'UNKNOWN' } as any);
-    expect(state).toEqual({
-      isLoading: false,
-      error: null,
-    });
+    expect(state).toEqual(initialState);
   });
 
   test('loginUser.pending: ставит isLoading = true и очищает ошибку', () => {

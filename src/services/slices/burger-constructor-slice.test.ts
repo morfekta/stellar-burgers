@@ -3,7 +3,8 @@ import reducer, {
   removeIngredient,
   moveIngredient,
   setBun,
-  clearConstructor
+  clearConstructor,
+  initialState
 } from './burger-constructor-slice';
 import { TConstructorIngredient } from '@utils-types';
 
@@ -27,7 +28,7 @@ const makeIng = (
 describe('Слайс конструктора бургера', () => {
   test('возвращает начальное состояние при неизвестном экшене', () => {
     const state = reducer(undefined, { type: 'UNKNOWN' } as any);
-    expect(state).toEqual({ bun: null, ingredients: [] });
+    expect(state).toEqual(initialState);
   });
 
   test('устанавливает булку (setBun)', () => {
@@ -74,6 +75,6 @@ describe('Слайс конструктора бургера', () => {
     let state = reducer(undefined, setBun(bun));
     state = reducer(state, addIngredient(makeIng()));
     state = reducer(state, clearConstructor());
-    expect(state).toEqual({ bun: null, ingredients: [] });
+    expect(state).toEqual(initialState);
   });
 });

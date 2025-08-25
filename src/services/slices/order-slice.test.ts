@@ -1,18 +1,14 @@
 import reducer, {
   postOrder,
   fetchUserOrders,
-  clearOrder
+  clearOrder,
+  initialState
 } from './order-slice';
 
 describe('Слайс заказов (order-slice)', () => {
   test('возвращает начальное состояние при неизвестном экшене', () => {
     const state = reducer(undefined, { type: 'UNKNOWN' } as any);
-    expect(state).toEqual({
-      order: null,
-      userOrders: [],
-      isLoading: false,
-      error: null
-    });
+    expect(state).toEqual(initialState);
   });
 
   test('postOrder.pending: ставит isLoading = true и очищает ошибку', () => {

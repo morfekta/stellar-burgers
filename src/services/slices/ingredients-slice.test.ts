@@ -1,9 +1,9 @@
-import reducer, { fetchIngredients } from './ingredients-slice';
+import reducer, { fetchIngredients, initialState } from './ingredients-slice';
 
 describe('Слайс ингредиентов', () => {
   test('возвращает начальное состояние при неизвестном экшене', () => {
     const state = reducer(undefined, { type: 'UNKNOWN' } as any);
-    expect(state).toEqual({ ingredients: [], isLoading: false, error: null });
+    expect(state).toEqual(initialState);
   });
 
   test('ставит isLoading = true и очищает ошибку при fetchIngredients.pending', () => {

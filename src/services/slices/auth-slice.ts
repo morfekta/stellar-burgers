@@ -20,7 +20,7 @@ interface IAuthState {
   error: string | null;
 }
 
-const initialState: IAuthState = {
+export const initialState: IAuthState = {
   isLoading: false,
   error: null
 };

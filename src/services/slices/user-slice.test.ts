@@ -3,17 +3,14 @@ import reducer, {
   updateUser,
   setUser,
   clearUser,
-  setAuthChecked
+  setAuthChecked,
+  initialState
 } from './user-slice';
 
 describe('Слайс пользователя (user-slice)', () => {
   test('возвращает начальное состояние при неизвестном экшене', () => {
     const state = reducer(undefined, { type: 'UNKNOWN' } as any);
-    expect(state).toEqual({
-      user: null,
-      isAuthChecked: false,
-      error: null
-    });
+    expect(state).toEqual(initialState);
   });
 
   test('setUser: записывает пользователя', () => {
