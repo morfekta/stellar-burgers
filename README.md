@@ -1,6 +1,6 @@
 # Stellar Burgers
 
-![Stellar Burgers Banner](https://code.s3.yandex.net/frontend-developer/react-fullstack-burger-banner.png)
+<img width="1920" height="1000" alt="image" src="https://github.com/user-attachments/assets/7e62f829-a048-4794-a6ee-7feb45b85b0d" />
 
 **Stellar Burgers** — это космическая бургерная, где вы можете собрать свой идеальный бургер из ингредиентов, доставленных из самых дальних уголков вселенной.
 
