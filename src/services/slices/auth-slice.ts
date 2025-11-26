@@ -20,7 +20,7 @@ interface IAuthState {
   error: string | null;
 }
 
-const initialState: IAuthState = {
+export const initialState: IAuthState = {
   isLoading: false,
   error: null
 };
@@ -86,6 +86,7 @@ const authSlice = createSlice({
       })
       .addMatcher(isFulfilled(loginUser, registerUser), (state) => {
         state.isLoading = false;
+        state.error = null;
       })
       .addMatcher(
         isRejectedWithValue(loginUser, registerUser),
